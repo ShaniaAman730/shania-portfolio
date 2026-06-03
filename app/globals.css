@@ -3,6 +3,11 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme inline {
+  --font-sans: 'Open Sans', 'Open Sans Fallback', sans-serif;
+  --font-serif: 'Bebas Neue', 'Bebas Neue Fallback', serif;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #000000;
@@ -121,6 +126,12 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-open-sans), sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-bebas-neue), sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.05em;
   }
 }
 

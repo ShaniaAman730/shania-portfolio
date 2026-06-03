@@ -60,7 +60,7 @@ export function Navbar() {
 
         {/* Theme Toggle */}
         <div className="flex items-center gap-4">
-          <ThemeToggle />
+          {pathname !== '/' && <ThemeToggle />}
 
           {/* Mobile Menu Button */}
           <button
