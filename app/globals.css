@@ -4,8 +4,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: 'Inter', 'Inter Fallback', sans-serif;
-  --font-serif: 'Outfit', 'Outfit Fallback', serif;
+  --font-sans: 'Open Sans', 'Open Sans Fallback', sans-serif;
+  --font-serif: 'Bebas Neue', 'Bebas Neue Fallback', serif;
 }
 
 :root {
@@ -126,11 +126,12 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-inter), sans-serif;
+    font-family: var(--font-open-sans), sans-serif;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-outfit), sans-serif;
-    font-weight: 700;
+    font-family: var(--font-bebas-neue), sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.05em;
   }
 }
 
