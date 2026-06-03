@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Inter, Outfit } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from 'next-themes'
 import './globals.css'
 
-const geist = Geist({ subsets: ["latin"], variable: '--font-geist-sans' });
-const geistMono = Geist_Mono({ subsets: ["latin"], variable: '--font-geist-mono' });
+const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
+const outfit = Outfit({ subsets: ["latin"], variable: '--font-outfit', weight: ['400', '500', '600', '700', '800'] });
 
 export const metadata: Metadata = {
   title: 'Shania Aman | Full-Stack Developer & Database Architect',
@@ -43,7 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geist.variable} ${geistMono.variable} font-sans antialiased bg-background text-foreground`}>
+      <body className={`${inter.variable} ${outfit.variable} font-sans antialiased bg-background text-foreground`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           {children}
           {process.env.NODE_ENV === 'production' && <Analytics />}
