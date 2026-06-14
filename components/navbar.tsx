@@ -2,9 +2,9 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { ThemeToggle } from '@/components/theme-toggle'
 import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import Image from 'next/image'
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
 
@@ -15,9 +15,7 @@ export function Navbar() {
   const navItems = [
     { label: 'Home', href: '/' },
     { label: 'Projects', href: '/projects' },
-    { label: 'Database', href: '/database' },
-    { label: 'Skills', href: '/skills' },
-    { label: 'Contact', href: '/contact' }
+    { label: 'Multimedia', href: '/multimedia' },
   ]
 
   return (
@@ -27,20 +25,19 @@ export function Navbar() {
       transition={{ duration: 0.5 }}
       className="fixed top-4 left-0 right-0 z-50 px-4 sm:px-6"
     >
-      <div className="max-w-4xl mx-auto glass rounded-full py-3 px-6 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="font-bold text-lg sm:text-xl bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent smooth-transition hover:opacity-80">
-          SA
+      <div className="relative mx-auto flex min-h-[50px] max-w-6xl items-center justify-between rounded-full border border-white/10 bg-background/90 px-3 py-2 shadow-xl shadow-black/10 backdrop-blur-xl dark:border-white/10 dark:bg-background/80 sm:px-4">
+        <Link href="/" className="flex items-center gap-3">
+          <Image src="/portfolio-logo.ico" alt="Shania Aman logo" width={30} height={30} className="h-8 w-8 rounded-full" priority />
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden items-center gap-6 md:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={cn(
-                'text-sm font-medium smooth-transition relative',
+                'relative text-base font-semibold smooth-transition',
                 pathname === item.href
                   ? 'text-primary'
                   : 'text-foreground/60 hover:text-foreground'
@@ -58,37 +55,33 @@ export function Navbar() {
           ))}
         </div>
 
-        {/* Theme Toggle */}
-        <div className="flex items-center gap-4">
-          <ThemeToggle />
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 hover:bg-white/10 rounded-lg smooth-transition"
-          >
-            {isOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          className="rounded-lg p-2 text-foreground hover:bg-primary/10 smooth-transition md:hidden"
+        >
+          {isOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
 
         {/* Mobile Navigation */}
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="absolute top-full left-0 right-0 mt-2 mx-4 glass rounded-lg p-4 md:hidden"
+            className="absolute top-full left-0 right-0 mx-4 mt-3 rounded-2xl border border-border/80 bg-background/95 p-4 shadow-2xl shadow-black/20 backdrop-blur-xl md:hidden"
           >
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 py-1">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
                   className={cn(
-                    'text-sm font-medium smooth-transition',
+                    'rounded-lg px-3 py-2 text-base font-semibold smooth-transition',
                     pathname === item.href
-                      ? 'text-primary'
-                      : 'text-foreground/60 hover:text-foreground'
+                      ? 'bg-primary/10 text-primary'
+                      : 'text-foreground hover:bg-muted/60 hover:text-foreground'
                   )}
                 >
                   {item.label}

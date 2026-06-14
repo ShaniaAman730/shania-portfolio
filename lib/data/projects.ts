@@ -13,9 +13,26 @@ export type Project = {
   challenges: string[]
   lessonsLearned: string[]
   databaseFocus?: {
-    entities: string[]
-    relationships: string[]
+    summary: string
+    image?: string
+    alt?: string
+    entities?: string[]
+    relationships?: string[]
   }
+  media?: Array<{
+    slot:
+      | 'afterTitle'
+      | 'afterProblem'
+      | 'afterSolution'
+      | 'afterKeyFeatures'
+      | 'afterTechnologies'
+      | 'afterContributions'
+      | 'afterChallenges'
+    kind: 'image' | 'gif' | 'video'
+    src?: string
+    alt: string
+    caption?: string
+  }>
   images: {
     hero: string
     dashboard: string
@@ -32,39 +49,50 @@ export const projects: Project[] = [
     slug: 'bahayahay',
     title: 'Bahayahay',
     category: 'Real Estate Management',
-    summary: 'Comprehensive real estate management system with property listings, verification workflows, and tenant management.',
-    description: 'A full-featured real estate platform built from the ground up with a focus on robust database design and complex business logic.',
-    problem: 'Real estate agencies struggled with managing properties, verification workflows, and tenant information across multiple locations without a centralized system.',
-    solution: 'Developed a comprehensive web application with role-based access control, automated verification workflows, and integrated property management.',
+    summary: 'Comprehensive real estate listing platform to combat illegal realt estate practitioners or "colorums".',
+    description: 'A real estate listing management platform developed as a Capstone Project in partnership with REBAP Naga City Chapter that helps combat illegal real estate practices through admin and system verification workflows.',
+    problem: 'Illegal real estate practitioners were exploiting the lack of verifications in listing platforms, leading to fraudulent activities and difficulties for homebuyers.',
+    solution: 'Developed a comprehensive web application with role-based access control, admin verification workflows, property listing management, review and messaging features.',
     keyFeatures: [
-      'Property listing and management',
-      'Automated verification workflows',
-      'Tenant and landlord management',
-      'Document management system',
-      'Payment tracking',
-      'Multi-language support'
+      'Property listing',
+      'Map-based property search',
+      'Admin verification workflows',
+      'Messaging system for communication between realtors and clients',
+      'Review and rating system for realtors',
+      'Guides and resources for homebuyers',
     ],
-    technologies: ['React', 'Node.js', 'PostgreSQL', 'Express.js', 'Tailwind CSS'],
+    technologies: ['Ruby on Rails', 'PostgreSQL', 'HTML', 'CSS', 'JavaScript', 'Bootstrap', 'Render', 'Github'],
     contributions: [
-      'Led database design and schema optimization',
-      'Implemented verification workflow system',
-      'Built admin dashboard with analytics',
-      'Designed authentication and authorization layer'
+      'Built the entire web application independently',
+      'Conducted a literature and market review to identify key features and workflows for the platform',
+      'Tested the application with real users and iterated based on feedback to improve usability and functionality',
+      'Created user manuals for each user type to guide them through the platform\'s features and workflows',
     ],
     challenges: [
-      'Managing complex verification workflows with multiple states',
-      'Optimizing database queries for large datasets',
-      'Handling real-time document uploads and processing'
+      'Designing and implementing complex workflows for multiple user roles',
+      'Ensuring data integrity and security in a platform that handles sensitive information',
+      'Developing a large application independently while managing time and resources effectively'
     ],
     lessonsLearned: [
-      'Importance of thorough data modeling before implementation',
-      'Need for comprehensive testing in workflow-heavy systems',
-      'Value of user feedback in refining business processes'
+      'Thorough planning and design are crucial for complex applications with multiple user roles and workflows',
+      'User testing and feedback are essential for improving usability and functionality',
+      'Entity Relationship Diagrams (ERDs) are valuable tools for designing and understanding database structures, especially in applications with complex data relationships'
     ],
     databaseFocus: {
+      summary: 'Centralized property, tenant, and verification data to support a controlled listing workflow.',
+      image: '/images/Bahayahay_ERD.png',
+      alt: 'Bahayahay ERD placeholder',
       entities: ['Properties', 'Tenants', 'Landlords', 'Verifications', 'Documents', 'Payments'],
       relationships: ['One-to-Many', 'Many-to-Many', 'Hierarchical']
     },
+    media: [
+      {
+        slot: 'afterTitle',
+        kind: 'video',
+        alt: 'Bahayahay project video',
+        src: '/images/Bahayahay.mp4',
+      }
+    ],
     images: {
       hero: '/images/bahayahay-hero.png',
       dashboard: '/images/bahayahay-dashboard.png',
@@ -77,39 +105,54 @@ export const projects: Project[] = [
     slug: 'real-estate-web-app',
     title: 'Real Estate Web App',
     category: 'Enterprise Platform',
-    summary: 'Enterprise-grade real estate platform with database connectivity, admin CMS, and financial calculators.',
-    description: 'Scalable platform serving real estate professionals with integrated database systems, administrative tools, and specialized calculators for financial planning.',
-    problem: 'Real estate professionals needed a modern platform with integrated database connectivity, easy content management, and specialized calculation tools.',
-    solution: 'Built an enterprise platform with robust database connections, comprehensive admin CMS, and specialized calculators for loan and property analysis.',
+    summary: 'Company real estate platform with property database, admin dashboard, and loan calculator.',
+    description: 'A real estate sales platform developed for Enjoy Realty & Development Corporation and Aman Engineering. The system showcases model houses and lot-only properties while providing clients with an integrated loan calculator.',
+    problem: 'Real estate professionals needed a modern platform with integrated database connectivity, content management, and loan calculation capabilities.',
+    solution: 'Built a platform with a property database, admin dashboard, and loan calculator.',
     keyFeatures: [
       'Database-driven property listings',
       'Admin content management system',
       'Loan calculator with multiple options',
       'Property search with advanced filters',
-      'Investment analysis tools',
-      'Lead management system'
     ],
-    technologies: ['Next.js', 'PostgreSQL', 'Supabase', 'React', 'Node.js', 'TypeScript'],
+    technologies: ['Next.js', 'PostgreSQL', 'Supabase (PostgreSQL)', 'React', 'TypeScript', 'Tailwind CSS', 'Vercel', 'Github'],
     contributions: [
-      'Designed database schema and connection architecture',
-      'Built admin CMS for property management',
+      'Designed database schema and connection',
+      'Built admin dashboardfor property management',
       'Implemented loan calculator with complex formulas',
       'Optimized search and filtering performance'
     ],
     challenges: [
       'Maintaining database connection reliability',
       'Implementing complex financial calculations accurately',
-      'Scaling to handle large property inventories'
+      'Handling large property inventories'
     ],
     lessonsLearned: [
-      'Importance of connection pooling for database performance',
-      'Value of comprehensive financial calculation testing',
-      'Need for caching strategies in large-scale applications'
+      'Importance of doing an inventory for existing development projects',
+      'Value of comprehensive loan calculation',
+      'Need for caching strategies in servicing real estate brokers and salespersons'
     ],
     databaseFocus: {
+      summary: 'Supports content, lead, and property data with a lightweight structure for CMS-driven updates.',
+      image: '/images/Aman_Webapp_New_Database.png',
+      alt: 'Real Estate Web App ERD placeholder',
       entities: ['Properties', 'Users', 'Leads', 'Transactions', 'Content'],
       relationships: ['One-to-Many', 'Many-to-Many']
     },
+    media: [
+      {
+        slot: 'afterContributions',
+        kind: 'video',
+        alt: 'Real Estate Web App Portfolio Video',
+        src: '/images/New_AmanWebapp_Video.mp4',
+      },
+      {
+        slot: 'afterTitle',
+        kind: 'video',
+        alt: 'Real Estate Web App Tutorial Video',
+        src: '/images/Aman_Webapp_Video_Tutorial.mp4',
+      }
+    ],
     images: {
       hero: '/images/real-estate-app-hero.png',
       dashboard: '/images/real-estate-app-dashboard.png',
@@ -123,38 +166,59 @@ export const projects: Project[] = [
     title: 'Rent Tracker',
     category: 'Property Management',
     summary: 'Multi-user rental property management system with utilities tracking, contract management, and payment reconciliation.',
-    description: 'Sophisticated rental management application designed for landlords and property managers to track multiple properties, tenants, utilities, and payments.',
-    problem: 'Property managers struggled to track multiple rental properties, utilities, contracts, and payments in a unified system.',
-    solution: 'Developed a comprehensive tracking system with multi-tenant support, utility management, contract versioning, and automated payment tracking.',
+    description: 'A rental management application designed to track multiple properties, tenants, utilities, and payments.',
+    problem: 'A property manager struggled to track multiple rental properties, utilities, contracts, and payments in a unified system.',
+    solution: 'Developed a comprehensive tracking system with multi-user support, utility management, contract generation, and payment tracking.',
     keyFeatures: [
       'Multi-property management',
-      'Tenant tracking and history',
+      'Rent tracking and history',
       'Utility bill management and tracking',
-      'Contract management with versioning',
-      'Payment tracking and reminders',
-      'Expense reporting'
+      'Contract management and tracking',
     ],
-    technologies: ['React', 'Firebase', 'Node.js', 'MongoDB', 'Material-UI'],
+    technologies: ['Next.js', 'Supabase (PostgreSQL)', 'React', 'Node.js', 'TypeScript', 'Vercel', 'Tailwind CSS', 'Github'],
     contributions: [
       'Architected database schema for multi-tenant properties',
+      'Developed the web application independently',
       'Implemented utility tracking and calculation system',
-      'Built contract management with version control',
-      'Created payment reconciliation system'
+      'Built contract management and generation (to PDF/Word)',
     ],
     challenges: [
-      'Managing complex multi-tenant relationships',
-      'Accurate utility allocation across multiple properties',
-      'Handling payment reconciliation with delays'
+      'Managing complex functionalities across multiple properties and tenants',
+      'Accurate utility calculation',
+      'Making each contract customizable to varying properties while retaining common elements'
     ],
     lessonsLearned: [
-      'Complex domain logic benefits from thorough documentation',
-      'User experience crucial in financial tracking applications',
-      'Importance of audit trails in financial systems'
+      'Designing for multi-tenancy requires careful data modeling and access control',
+      'Utility tracking can be complex and may require iterative refinement based on real-world usage',
+      'Balancing customization and standardization in contract generation is key for usability'
     ],
     databaseFocus: {
+      summary: 'Tracks rentals, utilities, and payment history across tenants and properties in one place while also managing contracts and their relationships to properties and tenants.',
+      image: '/images/RentTracker_ERD.png',
+      alt: 'Rent Tracker ERD placeholder',
       entities: ['Properties', 'Tenants', 'Contracts', 'Utilities', 'Payments', 'Expenses'],
       relationships: ['One-to-Many', 'Many-to-Many', 'Temporal Data']
     },
+    media: [
+      {
+        slot: 'afterProblem',
+        kind: 'gif',
+        src: '/images/RT_Utility.gif',
+        alt: 'Rent Tracker GIF'
+      },
+      {
+        slot: 'afterKeyFeatures',
+        kind: 'gif',
+        src: '/images/RT_Contract.gif',
+        alt: 'Rent Tracker GIF 2'
+      },
+      {
+        slot: 'afterContributions',
+        kind: 'gif',
+        src: '/images/RT_Rent_Tracking.gif',
+        alt: 'Rent Tracker GIF3' 
+      }
+    ],
     images: {
       hero: '/images/rent-tracker-hero.png',
       dashboard: '/images/rent-tracker-dashboard.png',
@@ -167,39 +231,55 @@ export const projects: Project[] = [
     slug: 'inventory-tracker',
     title: 'Inventory Tracker',
     category: 'Asset Management',
-    summary: 'Comprehensive inventory management system with stock tracking, expiry management, and detailed reporting.',
-    description: 'Enterprise inventory management solution for tracking assets, stock levels, product expiry, and generating analytical reports.',
-    problem: 'Businesses needed a centralized inventory system with accurate stock tracking, expiry date management, and comprehensive reporting capabilities.',
-    solution: 'Built a full-featured inventory system with real-time stock updates, automated expiry alerts, and advanced analytics.',
+    summary: 'Comprehensive inventory management system that tracks inventory stocks, expiry dates, and generates reports.',
+    description: 'Enterprise inventory management solution for tracking assets, stock levels, product expiry, and generating reports.',
+    problem: 'Businesses needed a centralized inventory system with accurate stock and expiry date tracking.',
+    solution: 'Built an inventory system with stock and expiry date tracking, and report generation.',
     keyFeatures: [
-      'Real-time stock tracking',
-      'Expiry date management and alerts',
-      'Inventory reporting and analytics',
-      'Barcode scanning integration',
-      'Stock level recommendations',
-      'Multi-warehouse support'
+      'Stock tracking',
+      'Expiry date tracking',
+      'Inventory report generation (Excel file)',
     ],
-    technologies: ['Vue.js', 'Node.js', 'PostgreSQL', 'Express.js', 'Vuetify'],
+    technologies: ['Python', 'Tkinter', 'PostrgreSQL', 'Github'],
     contributions: [
-      'Designed scalable inventory database schema',
-      'Implemented real-time stock management',
-      'Built analytics and reporting engine',
-      'Created expiry notification system'
+      'Developed the entire application independently',
+      'Tested the application with real inventory data and iterated based on quality of output',
     ],
     challenges: [
-      'Maintaining real-time accuracy with high transaction volume',
-      'Implementing efficient expiry tracking logic',
-      'Generating complex analytics reports performantly'
+      'Making data entries easier for 200+ inventory items',
+      'Identifying reports that need to be separated into multiple reports for better readability'
     ],
     lessonsLearned: [
-      'Transaction consistency critical in inventory systems',
-      'Real-time data synchronization requires careful planning',
-      'Performance optimization essential for large datasets'
+      'Iterating based on the quality of the output file is crucial for improving usability',
+      'Generating reports in multiple formats can improve readability and user experience'
     ],
     databaseFocus: {
-      entities: ['Products', 'Inventory', 'Stock Movements', 'Warehouses', 'Analytics'],
+      summary: 'Tracking stocks and inventory levels. Separating acquisitions and statuses reporting for a more readable and comprehensive database structure.',
+      image: '/images/IM_ERD.png',
+      alt: 'Inventory Tracker ERD',
+      entities: ['Users', 'Products', 'Assets'],
       relationships: ['One-to-Many', 'Complex Queries']
     },
+    media: [
+      {
+        slot: 'afterProblem',
+        kind: 'gif',
+        src: '/images/IM_Overview.gif',
+        alt: 'Inventory Tracker GIF'
+      },
+      {
+        slot: 'afterKeyFeatures',
+        kind: 'gif',
+        src: '/images/IM_Exporting.gif',
+        alt: 'Inventory Tracker GIF 2'
+      },
+      {
+        slot: 'afterContributions',
+        kind: 'gif',
+        src: '/images/IM_Expiry.gif',
+        alt: 'Inventory Tracker GIF3' 
+      }
+    ],
     images: {
       hero: '/images/inventory-tracker-hero.png',
       dashboard: '/images/inventory-tracker-dashboard.png',
@@ -210,43 +290,49 @@ export const projects: Project[] = [
   {
     id: '5',
     slug: 'enjoy-realty-development',
-    title: 'Enjoy Realty Development',
-    category: 'Web Development',
-    summary: 'Corporate website redesign and modernization for real estate development company with focus on SEO.',
-    description: 'Complete website redesign and modernization for a real estate development company, incorporating modern design principles and SEO best practices.',
-    problem: 'Enjoy Realty needed a modern web presence with improved user experience and search engine visibility.',
-    solution: 'Redesigned corporate website with modern aesthetics, optimized navigation, and comprehensive SEO implementation.',
+    title: 'Enjoy Realty Development and Corporation',
+    category: 'Web Design',
+    summary: 'Corporate website redesign for real estate development company with SEO.',
+    description: 'Complete website redesign and modernization for a real estate development company, Enjoy Realty Development and Corporation, and incorporating SEO practices.',
+    problem: 'Enjoy Realty needed a modern web presence with improved search engine visibility.',
+    solution: 'Redesigned corporate website with modern aesthetics and implemented Search Engine Optimization (SEO) strategies.',
     keyFeatures: [
-      'Modern responsive design',
-      'Project showcase gallery',
+      'Modern responsive design', 
       'Contact and inquiry forms',
-      'Blog section for thought leadership',
-      'SEO optimization',
-      'Performance optimization'
+      'Search engine optimization',
     ],
-    technologies: ['React', 'Next.js', 'Tailwind CSS', 'Contentful CMS', 'Vercel'],
+    technologies: ['Wordpress', 'Local', 'Yoast SEO', 'WPForms'],
     contributions: [
-      'Led website redesign and modernization',
-      'Implemented SEO optimization strategies',
-      'Designed responsive layouts for all devices',
-      'Integrated CMS for content management'
+      'Managed full website redesign independently',
+      'Implemented Search Engine Optimization (SEO) strategies',
     ],
     challenges: [
-      'Balancing modern design with corporate branding',
+      'Adapting to Wordpress and Local\'s development environments',
       'Optimizing for search engine visibility',
-      'Ensuring fast loading times across regions'
+      'Recovering from a website breach and restoring functionality'
     ],
     lessonsLearned: [
       'SEO requires ongoing attention and optimization',
-      'Content strategy critical for engagement',
-      'Performance directly impacts user experience and rankings'
+      'Double check widget and plugin security settings to prevent breaches',
+      'Regular backups are essential for recovery from security incidents'
     ],
-    databaseFocus: {
-      entities: ['Projects', 'Content', 'Inquiries', 'Analytics'],
-      relationships: ['One-to-Many']
-    },
+    media: [
+      {
+        slot: 'afterProblem',
+        kind: 'gif',
+        src: '/images/ER_home_page.gif',
+        alt: 'Enjoy Realty home page GIF',
+        caption: 'Home page before and after'
+      },
+      {
+        slot: 'afterKeyFeatures',
+        kind: 'gif',
+        src: '/images/ER_about_page.gif',
+        alt: 'Enjoy Realty about page GIF'
+      }
+    ],
     images: {
-      hero: '/images/enjoy-realty-hero.png',
+      hero: '/images/ER_home_page.gif',
       dashboard: '/images/enjoy-realty-dashboard.png',
       feature: '/images/enjoy-realty-feature.png',
       mobile: '/images/enjoy-realty-mobile.png'
@@ -256,40 +342,46 @@ export const projects: Project[] = [
     id: '6',
     slug: 'hdn-integrated-farm',
     title: 'HDN Integrated Farm',
-    category: 'E-commerce & Services',
-    summary: 'Full-featured platform for agribusiness with product catalog, experience booking, and membership management.',
-    description: 'Comprehensive agribusiness platform offering product sales, agritourism experiences, and membership programs with integrated inventory and booking systems.',
-    problem: 'Agricultural business needed a unified platform to sell products, offer experiences, and manage memberships efficiently.',
-    solution: 'Developed integrated platform with product catalog, experience booking system, and membership management with financial tracking.',
+    category: 'Agri-business Platform',
+    summary: 'Full-featured platform for agribusiness with product catalog and experience bookings.',
+    description: 'Comprehensive agribusiness platform showcasing products, agritourism experiences, and membership programs with integrated content manager and booking forms.',
+    problem: 'Agricultural business needed a unified platform to showcase products and offer experiences effectively.',
+    solution: 'Developed integrated platform with product catalog and experience booking forms',
     keyFeatures: [
-      'Product catalog and e-commerce',
-      'Experience booking system',
-      'Membership management',
-      'Inventory synchronization',
-      'Payment processing',
-      'Customer analytics'
+      'Product catalog with content management',
+      'Experience booking forms'
     ],
-    technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'Mapbox', 'Redux'],
+    technologies: ['React', 'Node.js', 'Supabase (PostgreSQL)', 'Tailwind CSS', 'Vercel', 'Github'],
     contributions: [
-      'Architected database schema for complex business model',
-      'Implemented booking system with availability management',
-      'Built membership tier system with benefits',
-      'Integrated payment processing'
+      'Developed full website independently',
+      'Implemented content management and booking forms',
     ],
     challenges: [
-      'Managing inventory across multiple product types',
-      'Coordinating complex booking availability',
-      'Handling membership benefits and tier management'
+      'Conceptualizing products and experiences in the website that do not physically exist yet'
     ],
     lessonsLearned: [
-      'Complex business models require clear data relationships',
-      'Booking systems need robust conflict resolution',
-      'Regular database maintenance critical as data grows'
+      'Effective communication with stakeholders is crucial when building a platform for a business that is still in development'
     ],
-    databaseFocus: {
-      entities: ['Products', 'Experiences', 'Bookings', 'Memberships', 'Payments', 'Inventory'],
-      relationships: ['Complex Many-to-Many', 'Temporal Data', 'State Management']
-    },
+    media: [
+      {
+        slot: 'afterProblem',
+        kind: 'gif',
+        src: '/images/HDN_home_page.gif',
+        alt: 'HDN Integrated Farm GIF'
+      },
+      {
+        slot: 'afterKeyFeatures',
+        kind: 'gif',
+        src: '/images/HDN_pick_pay_page.gif',
+        alt: 'HDN Integrated Farm GIF 2'
+      },
+      {
+        slot: 'afterContributions',
+        kind: 'gif',
+        src: '/images/HDN_content_manager_page.gif',
+        alt: 'HDN Integrated Farm GIF3' 
+      }
+    ],
     images: {
       hero: '/images/hdn-farm-hero.png',
       dashboard: '/images/hdn-farm-dashboard.png',

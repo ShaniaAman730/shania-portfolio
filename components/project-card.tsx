@@ -33,7 +33,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             </div>
 
             {/* Title */}
-            <h3 className="text-xl font-bold text-foreground group-hover:text-primary smooth-transition line-clamp-2">
+            <h3 className="text-3xl font-bold text-foreground group-hover:text-primary smooth-transition line-clamp-2">
               {project.title}
             </h3>
 
