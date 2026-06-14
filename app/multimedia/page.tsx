@@ -3,6 +3,7 @@
 import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
 import Image from 'next/image'
+import { extractYoutubeId, isYoutubeUrl } from '@/lib/utils'
 
 type MultimediaItem =
   | {
@@ -38,9 +39,19 @@ function MultimediaTile({ item }: { item: MultimediaItem }) {
     <article className="group relative overflow-hidden rounded-3xl border border-white/10 bg-black/20 shadow-2xl shadow-black/20">
       <div className="relative aspect-square overflow-hidden">
         {item.kind === 'video' ? (
-          <video className="h-full w-full bg-black object-contain" controls playsInline preload="metadata" aria-label={item.alt}>
-            <source src={item.src} />
-          </video>
+          isYoutubeUrl(item.src) ? (
+            <iframe
+              src={`https://www.youtube.com/embed/${extractYoutubeId(item.src)}`}
+              className="h-full w-full bg-black"
+              allowFullScreen
+              loading="lazy"
+              title={item.alt}
+            />
+          ) : (
+            <video className="h-full w-full bg-black object-contain" controls playsInline preload="metadata" aria-label={item.alt}>
+              <source src={item.src} />
+            </video>
+          )
         ) : (
           <Image src={item.src} alt={item.alt} fill className="object-contain bg-black transition duration-500 group-hover:scale-105" />
         )}

@@ -7,6 +7,7 @@ import { ArrowLeft, MonitorPlay } from 'lucide-react'
 import { Mail } from 'lucide-react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { extractYoutubeId, isYoutubeUrl } from '@/lib/utils'
 import type { Project } from '@/lib/data/projects'
 
 interface ProjectPageProps {
@@ -20,27 +21,39 @@ type ProjectMedia = NonNullable<Project['media']>[number]
 function MediaCard({ media }: { media: ProjectMedia }) {
   return (
     <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/20 shadow-2xl shadow-black/20">
-      {media.src ? (
-        media.kind === 'video' ? (
-          <video className="h-full w-full object-cover" controls playsInline preload="metadata">
-            <source src={media.src} />
-          </video>
+      <div className={media.kind === 'video' ? 'relative aspect-video overflow-hidden' : ''}>
+        {media.src ? (
+          media.kind === 'video' ? (
+            isYoutubeUrl(media.src) ? (
+              <iframe
+                src={`https://www.youtube.com/embed/${extractYoutubeId(media.src)}`}
+                className="h-full w-full object-cover"
+                allowFullScreen
+                loading="lazy"
+                title={media.alt}
+              />
+            ) : (
+              <video className="h-full w-full object-cover" controls playsInline preload="metadata">
+                <source src={media.src} />
+              </video>
+            )
+          ) : (
+            <img src={media.src} alt={media.alt} className="h-full w-full object-cover" />
+          )
         ) : (
-          <img src={media.src} alt={media.alt} className="h-full w-full object-cover" />
-        )
-      ) : (
-        <div className="flex min-h-[280px] items-center justify-center bg-gradient-to-br from-white/10 via-white/5 to-transparent p-8 text-center">
-          <div className="max-w-sm space-y-3">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary/15 text-primary">
-              <MonitorPlay className="h-6 w-6" />
+          <div className="flex min-h-[280px] items-center justify-center bg-gradient-to-br from-white/10 via-white/5 to-transparent p-8 text-center">
+            <div className="max-w-sm space-y-3">
+              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary/15 text-primary">
+                <MonitorPlay className="h-6 w-6" />
+              </div>
+              <p className="text-lg font-semibold text-foreground">{media.alt}</p>
+              <p className="text-sm text-muted-foreground">
+                {media.caption ?? 'Media placeholder for this project section.'}
+              </p>
             </div>
-            <p className="text-lg font-semibold text-foreground">{media.alt}</p>
-            <p className="text-sm text-muted-foreground">
-              {media.caption ?? 'Media placeholder for this project section.'}
-            </p>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   )
 }
