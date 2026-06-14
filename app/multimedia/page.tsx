@@ -22,13 +22,13 @@ const multimediaItems: MultimediaItem[] = [
   {
     title: 'Enjoy Realty Promo Video',
     kind: 'video',
-    src: '/images/Final_Promo_Video.mp4',
+    src: 'https://youtube.com/shorts/Z_UBU2SIXn0',
     alt: 'Enjoy Realty Promotional Video',
   },
   {
     title: 'ARISE Technology Promotional Video',
     kind: 'video',
-    src: '/images/ARISE_EDITED2.mp4',
+    src: 'https://youtube.com/shorts/FIZ_jwQrXbg',
     alt: 'ARISE Technology Promo Video',
   },
 ]

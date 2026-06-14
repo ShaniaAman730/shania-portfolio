@@ -90,7 +90,7 @@ export const projects: Project[] = [
         slot: 'afterTitle',
         kind: 'video',
         alt: 'Bahayahay project video',
-        src: '/images/Bahayahay.mp4',
+        src: 'https://youtu.be/N5oOilWn87s',
       }
     ],
     images: {
@@ -144,13 +144,13 @@ export const projects: Project[] = [
         slot: 'afterContributions',
         kind: 'video',
         alt: 'Real Estate Web App Portfolio Video',
-        src: '/images/New_AmanWebapp_Video.mp4',
+        src: 'https://youtu.be/aEnuxzQtGyU',
       },
       {
         slot: 'afterTitle',
         kind: 'video',
         alt: 'Real Estate Web App Tutorial Video',
-        src: '/images/Aman_Webapp_Video_Tutorial.mp4',
+        src: 'https://youtu.be/9CxS9rqO3jo',
       }
     ],
     images: {
