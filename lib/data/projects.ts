@@ -49,7 +49,7 @@ export const projects: Project[] = [
     slug: 'bahayahay',
     title: 'Bahayahay',
     category: 'Real Estate Management',
-    summary: 'Comprehensive real estate listing platform to combat illegal realt estate practitioners or "colorums".',
+    summary: 'Comprehensive real estate listing platform to combat illegal real estate practitioners or "colorums".',
     description: 'A real estate listing management platform developed as a Capstone Project in partnership with REBAP Naga City Chapter that helps combat illegal real estate practices through admin and system verification workflows.',
     problem: 'Illegal real estate practitioners were exploiting the lack of verifications in listing platforms, leading to fraudulent activities and difficulties for homebuyers.',
     solution: 'Developed a comprehensive web application with role-based access control, admin verification workflows, property listing management, review and messaging features.',
