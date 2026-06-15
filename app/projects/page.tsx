@@ -33,7 +33,7 @@ export default function ProjectsPage() {
           >
             <h1 className="text-5xl sm:text-6xl font-bold mb-4">Projects</h1>
             <p className="text-lg text-muted-foreground max-w-2xl">
-              A comprehensive collection of projects showcasing my expertise in full-stack development, database architecture, and building scalable applications.
+              A collection of projects showcasing my experience in full-stack development and database architecture.
             </p>
           </motion.div>
 
