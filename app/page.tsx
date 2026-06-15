@@ -300,7 +300,7 @@ export default function Home() {
           >
             <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between md:gap-8">
               <div className="space-y-2">
-                <h3 className="text-3xl font-bold">Enjoy Realty & Development Corporation - IT Support</h3>
+                <h3 className="text-3xl font-bold">Enjoy Realty & Development Corporation - IT Support Intern</h3>
                 <p className="text-lg text-muted-foreground">January 2026 - April 2026</p>
               </div>
             </div>
