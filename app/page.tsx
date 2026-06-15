@@ -98,6 +98,7 @@ export default function Home() {
                     >
                       General QPI: 3.30/4.0
                     </button>
+                    <br />
                     <span>Graduated 2026</span>
                   </div>
                 </div>
