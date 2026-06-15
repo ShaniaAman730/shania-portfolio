@@ -98,23 +98,9 @@ export default function Home() {
                     >
                       General QPI: 3.30/4.0
                     </button>
+                    <span>2025 - 2026, Graduated</span>
                   </div>
                 </div>
-
-                <ul className="space-y-3 text-muted-foreground">
-                  <li className="flex gap-3">
-                    <span className="mt-2 h-2 w-2 rounded-full bg-primary flex-shrink-0" />
-                    <span>2015 - 2017 (1st year as a Business Management student and shifted to Information Technology in the 2nd year)</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="mt-2 h-2 w-2 rounded-full bg-primary flex-shrink-0" />
-                    <span>2018 - 2020</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="mt-2 h-2 w-2 rounded-full bg-primary flex-shrink-0" />
-                    <span>2025 - 2026, Graduated</span>
-                  </li>
-                </ul>
 
                 <div className="space-y-3">
                   <h4 className="text-3xl leading-none uppercase">Awards</h4>
