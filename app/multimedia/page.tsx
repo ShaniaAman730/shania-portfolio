@@ -32,6 +32,78 @@ const multimediaItems: MultimediaItem[] = [
     src: 'https://youtube.com/shorts/FIZ_jwQrXbg',
     alt: 'ARISE Technology Promo Video',
   },
+  {
+    title: 'TNA Builders Promotional Image',
+    kind: 'image',
+    src: 'images/PI_1.png',
+    alt: 'TNA Builders Promotional Image',
+  },
+  {
+    title: 'Aman Group of Companies Revised UI 1',
+    kind: 'image',
+    src: 'images/PI_2.png',
+    alt: 'Aman Group of Companies Revised UI 1',
+  },
+  {
+    title: 'Aman Group of Companies Revised UI 2',
+    kind: 'image',
+    src: 'images/PI_3.png',
+    alt: 'Aman Group of Companies Revised UI 2',
+  },
+  {
+    title: 'Personal Project 1',
+    kind: 'image',
+    src: 'images/PI_4.png',
+    alt: 'Personal Project 1',
+  },
+  {
+    title: 'Price Increase Promo Image 1',
+    kind: 'image',
+    src: 'images/PI_5.png',
+    alt: 'Price Increase Promo Image 1',
+  },
+  {
+    title: 'Price Increase Promo Image 2',
+    kind: 'image',
+    src: 'images/PI_6.png',
+    alt: 'Price Increase Promo Image 2',
+  },
+  {
+    title: 'Food Trip Sa Ciudid nin Naga',
+    kind: 'image',
+    src: 'images/PI_7.png',
+    alt: 'Food Trip Sa Ciudid nin Naga',
+  },
+  {
+    title: 'Bakery 1',
+    kind: 'image',
+    src: 'images/PI_8.png',
+    alt: 'Bakery 1',
+  },
+  {
+    title: 'Bakery 2',
+    kind: 'image',
+    src: 'images/PI_9.png',
+    alt: 'Bakery 2',
+  },
+  {
+    title: 'Bakery 3',
+    kind: 'image',
+    src: 'images/PI_10.png',
+    alt: 'Bakery 3',
+  },
+  {
+    title: 'Hardware Tarpaulins',
+    kind: 'image',
+    src: 'images/PI_11.png',
+    alt: 'Hardware Tarpaulins',
+  },
+  {
+    title: 'Airbnb Place Brochure',
+    kind: 'image',
+    src: 'images/PI_12.png',
+    alt: 'Airbnb Place Brochure',
+  }
 ]
 
 function MultimediaTile({ item }: { item: MultimediaItem }) {
